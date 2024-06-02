@@ -1,0 +1,56 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background: radial-gradient( #2b07b0, #5ca7fd ); /*linear-gradient (to right, #a2ff00, #61f03a) */
+}
+
+.calculator-grid{
+    justify-content: center;
+    display: grid;
+    margin-top: 2rem; /*da se odvoje dugmici od vrha stranice*/
+    grid-template-columns: repeat(4,6rem); /*4 kolone te dimenzije*/
+    grid-template-rows: minmax(7rem, auto) repeat(5, 6rem); /* da se odredi visina redova; po difoltu prvi red da bude 7rem ili auto u zavisnosgti od broja koji ukucavamo da moze da se prosiri to polje */
+}
+
+.calculator-grid > button{
+cursor: pointer;
+font-size: 2rem;
+border: 1px solid white;
+outline: none;
+background-color: rgba(255,255,255,0.75);
+}
+
+.calculator-grid > button:hover,
+.calculator-grid > button:focus{
+    background-color: rgba(255,255,255,.9);
+
+}
+
+.span-two{
+    grid-column: span 2; /*AC i = da se prosire na velicinu dva polja*/
+}
+
+.output{
+    grid-column: 1 / -1; /*da se rasporede dugmici*/
+    background-color: rgba(0,0,0,.75); /*transparency je .75*/
+    display: flex;
+    flex-direction: column; /*da stoje vertikalno brojevi*/
+    align-items: flex-end; /**/
+    justify-content: space-around; /*da ima dovoljno prostora izmedju brojeva vertikalno*/
+    padding: .75rem;
+    word-wrap: break-word;
+    word-break: break-all; /*kad ima mnogo brojeva u redu da moze lepo da ih prebaci u novi*/
+}
+
+.output .previous-operand {
+    color: rgba(255,255,255,0.75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    color: white;
+    font-size: 2.5rem;
+}
